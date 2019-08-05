@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false
         },
         pay: {
-            type:DataType.FLOAT,
+            type:DataTypes.FLOAT,
             allowNull: false
         },
         hours: {
@@ -28,11 +28,11 @@ module.exports = function(sequelize, DataTypes) {
             }
         })
 
-        Job.belongsToMany(Worker, 
-            {
-                through: 'chosenJobs',
-                foreignKey: 'Job_rowId'
-            })
+        // Job.belongsToMany(Worker, 
+        //     {
+        //         through: 'chosenJobs',
+        //         foreignKey: 'Job_rowId'
+        //     })
     };
 
     return Job
