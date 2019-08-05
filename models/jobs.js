@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Job = sequelize.define("Job", {
 
-        Position: {
+        position: {
           type: DataTypes.STRING,
           allowNull: false
         },
@@ -10,12 +10,16 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false
         },
         pay: {
-            type:DataTypes.FLOAT,
+            type:DataTypes.STRING,
             allowNull: false
         },
         hours: {
             type:DataTypes.STRING,
             allowNull: false
+        },
+        filled: {
+            type:DataTypes.BOOLEAN,
+            default: false
         }
 
     })
@@ -27,12 +31,13 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         })
+        // how do i put this in index?
 
-        // Job.belongsToMany(Worker, 
-        //     {
-        //         through: 'chosenJobs',
-        //         foreignKey: 'Job_rowId'
-        //     })
+        Job.belongsToMany(models.Worker, 
+            {
+                through: 'chosenJobs',
+                foreignKey: 'Job_rowId'
+            })
     };
 
     return Job

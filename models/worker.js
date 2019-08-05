@@ -12,11 +12,11 @@ module.exports = function(sequelize, DataTypes) {
     })
 
     Worker.associate = function(models) { //aliases
-        // Worker.belongsToMany(Job, 
-        //     {
-        //         through: 'chosenJobs',
-        //         foreignKey: 'Worker_rowId'
-        //     })
+        Worker.belongsToMany(models.Job, 
+            {
+                through: 'chosenJobs',
+                foreignKey: 'Worker_rowId'
+            })
     }
 
     return Worker
