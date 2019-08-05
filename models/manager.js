@@ -5,10 +5,16 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull: false
         },
+        placeName: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
         address: {
           type:DataTypes.STRING,
           allowNull: false
         }
+
+        //add email and phone to this and worker
     })
 
     Manager.associate = function(models) {
