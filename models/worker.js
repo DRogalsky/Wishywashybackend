@@ -1,23 +1,39 @@
-module.exports = function(sequelize, DataTypes) {
-    var Worker = sequelize.define("Worker", {
+module.exports = function (sequelize, DataTypes) {
+  var Worker = sequelize.define("Worker", {
 
-        name: {
-          type: DataTypes.STRING,
-          allowNull: false
-        },
-        address: {
-          type:DataTypes.STRING,
-          allowNull: false
-        }
-    })
-
-    Worker.associate = function(models) { //aliases
-        Worker.belongsToMany(models.Job, 
-            {
-                through: 'chosenJobs',
-                foreignKey: 'Worker_rowId'
-            })
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
+  })
 
-    return Worker
+  Worker.associate = function (models) {
+    Worker.belongsToMany(models.Job,
+      {
+        through: 'chosenJobs',
+        foreignKey: 'Worker_rowId'
+      })
+  }
+
+  return Worker
 }
