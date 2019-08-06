@@ -2,21 +2,21 @@ const db = require("../models");
 
 module.exports = function (app) {
     app.post("/api/signup/worker", function (req, res) {
-        //TODO: new person of type type (manager or worker) gets added to the database might need two since they're so different?
+        // new person of type type (manager or worker) gets added to the database might need two since they're so different?
         db.Worker.create(req.body).then(function (dbWorker) {
             res.json(dbWorker);
         });
     })
 
     app.post("/api/signup/manager", function (req, res) {
-        //TODO: new person of type type (manager or worker) gets added to the database might need two since they're so different?
+        // new person of type type (manager or worker) gets added to the database might need two since they're so different?
         db.Manager.create(req.body).then(function (dbManager) {
             res.json(dbManager);
         });
     })
 
     app.get("/api/profile/Worker/:id", function (req, res) {
-        //TODO: grab the profile of the person
+        // grab the profile of the person
         db.Worker.findOne({
             where: {
                 id: req.params.id
@@ -28,7 +28,7 @@ module.exports = function (app) {
     })
 
     app.get("/api/profile/Manager/:id", function (req, res) {
-        //TODO: grab the profile of the person
+        // grab the profile of the person
         db.Manager.findOne({
             where: {
                 id: req.params.id
@@ -40,7 +40,7 @@ module.exports = function (app) {
     })
 
     app.get("/api/joblist", function (req, res) {
-        //TODO: grab the job list and throw it to the front maybe only non filled?
+        // grab the job list and throw it to the front maybe only non filled?
         db.Job.findAll({
             where: {
                 filled: false
@@ -57,7 +57,7 @@ module.exports = function (app) {
     })
 
     app.get('/api/takejob/:jobid/:workerid', function (req, res) {
-        //TODO: adds job to worker and worker to job
+        // adds job to worker and worker to job
         db.Worker.findOne({
             where: {
                 id: req.params.workerid
@@ -71,7 +71,7 @@ module.exports = function (app) {
     })
 
     app.put('/api/filljob', function (req, res) {
-        //TODO: flags the job as filled
+        // flags the job as filled
         db.Job.update(
             req.body,
             {
@@ -86,7 +86,7 @@ module.exports = function (app) {
     })
 
     app.delete('/api/deletejob/:id', function (req, res) {
-        //TODO: remove job from list and other things probably?
+        // remove job from list and other things probably?
         db.Job.destory({
             where: {
                 id: req.params.id
