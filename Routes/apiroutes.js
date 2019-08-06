@@ -7,7 +7,7 @@ module.exports = function (app) {
             res.json(dbWorker);
         });
     })
-
+        // i probably don't need these anymore
     app.post("/api/signup/manager", function (req, res) {
         // new person of type type (manager or worker) gets added to the database might need two since they're so different?
         db.Manager.create(req.body).then(function (dbManager) {
