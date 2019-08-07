@@ -38,7 +38,9 @@ module.exports = function validateRegisterManagerData (data) {
   if (Validator.isEmpty(data.phone)) {
     errors.phone = "Phone field is required";
   }
-  if (Validator.isMobilePhone(data.phone, "any")) {
+
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(!data.phone.match(phoneno)) {
     errors.phone = "Phone field is invalid";
   }
 
