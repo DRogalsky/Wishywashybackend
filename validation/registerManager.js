@@ -16,14 +16,14 @@ module.exports = function validateRegisterManagerData (data) {
   if (Validator.isEmpty(data.firstName)) {
     errors.firstName = "First name field is required";
   }
-  if (!Validator.isLength(data.firstName, { min: 2, max: 30 })) {
+  else if (!Validator.isLength(data.firstName, { min: 2, max: 30 })) {
     errors.firstName = "First name must be between 2 and 30 characters";
   }
 
   if (Validator.isEmpty(data.lastName)) {
     errors.lastName = "Last name field is required";
   }
-  if (!Validator.isLength(data.lastName, { min: 2, max: 30 })) {
+  else if (!Validator.isLength(data.lastName, { min: 2, max: 30 })) {
     errors.lastName = "Last name must be between 2 and 30 characters";
   }
 
@@ -38,9 +38,7 @@ module.exports = function validateRegisterManagerData (data) {
   if (Validator.isEmpty(data.phone)) {
     errors.phone = "Phone field is required";
   }
-
-  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-  if(!data.phone.match(phoneno)) {
+  else if(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(data.phone) === false) {
     errors.phone = "Phone field is invalid";
   }
 
