@@ -43,7 +43,7 @@ module.exports = function (app) {
         // grab the job list and throw it to the front maybe only non filled?
         db.Job.findAll({
             where: {
-                filled: false
+                filled: null
             }
         }).then(function (jobs) {
             res.json(jobs)
