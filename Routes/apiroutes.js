@@ -61,7 +61,7 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             },
-            include: [db.worker]
+            include: [db.Worker]
         }).then(function (job){
             res.json(job)
         })
