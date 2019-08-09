@@ -56,6 +56,17 @@ module.exports = function (app) {
         })
     })
 
+    app.get("/api/job/workers/:id", function (req, res) {
+        db.Job.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.worker]
+        }).then(function (job){
+            res.json(job)
+        })
+    })
+
     app.get('/api/takejob/:jobid/:workerid', function (req, res) {
         // adds job to worker and worker to job
         db.Worker.findOne({
