@@ -1,1 +1,2 @@
-CREATE DATABASE wishywashy
+DROP DATABASE wishywashy;
+CREATE DATABASE wishywashy;
