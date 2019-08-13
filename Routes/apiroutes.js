@@ -98,7 +98,7 @@ module.exports = function (app) {
 
     app.delete('/api/deletejob/:id', function (req, res) {
         // remove job from list and other things probably?
-        db.Job.destory({
+        db.Job.destroy({
             where: {
                 id: req.params.id
             }
