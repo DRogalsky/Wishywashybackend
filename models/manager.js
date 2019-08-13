@@ -28,6 +28,10 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
 
     //add email and phone to this and worker
