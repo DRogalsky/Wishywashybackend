@@ -120,7 +120,7 @@ router.post("/manager/login", (req, res) => {
                         jwt.sign(
                             payload,
                             keys.secretOrKey, {
-                                expiresIn: '24h'
+                                expiresIn: 99999999
                             },
                             (err, token) => {
                                 if (err) {
