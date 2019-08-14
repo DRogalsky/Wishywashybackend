@@ -44,7 +44,8 @@ module.exports = function (app) {
         db.Job.findAll({
             where: {
                 filled: null
-            }
+            },
+            include: [db.Manager]
         }).then(function (jobs) {
             res.json(jobs)
         })
