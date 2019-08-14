@@ -35,7 +35,8 @@ router.post("/manager/register", (req, res) => {
         address: req.body.address,
         phone: req.body.phone,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        image: req.body.image
     };
 
     db.Manager
