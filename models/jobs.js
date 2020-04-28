@@ -1,4 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
+    // model for the job cards from the main site
     var Job = sequelize.define("Job", {
 
         companyName: {
@@ -29,14 +30,14 @@ module.exports = function (sequelize, DataTypes) {
     })
 
     Job.associate = function (models) {
-
+        // a job can have on manager
         Job.belongsTo(models.Manager, {
             foreignKey: {
                 allowNull: false
             }
         })
-        // how do i put this in index?
 
+        // a job can have many workers
         Job.belongsToMany(models.Worker,
             {
                 through: 'chosenJobs',

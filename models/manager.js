@@ -1,4 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
+  // Model for manager accounts
   var Manager = sequelize.define("Manager", {
 
     firstName: {
@@ -34,9 +35,10 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     }
 
-    //add email and phone to this and worker
+    
   })
 
+  // a manager can post many jobs
   Manager.associate = function (models) {
     Manager.hasMany(models.Job, {
       onDelete: "cascade"

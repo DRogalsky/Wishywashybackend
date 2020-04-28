@@ -2,14 +2,14 @@ const db = require("../models");
 
 module.exports = function (app) {
     app.post("/api/signup/worker", function (req, res) {
-        // new person of type type (manager or worker) gets added to the database might need two since they're so different?
+        // new person of type worker gets added to the database
         db.Worker.create(req.body).then(function (dbWorker) {
             res.json(dbWorker);
         });
     })
-        // i probably don't need these anymore
+
     app.post("/api/signup/manager", function (req, res) {
-        // new person of type type (manager or worker) gets added to the database might need two since they're so different?
+        // new person of type manager gets added to the database
         db.Manager.create(req.body).then(function (dbManager) {
             res.json(dbManager);
         });
@@ -52,12 +52,14 @@ module.exports = function (app) {
     })
 
     app.post("/api/createJob", function (req, res) {
+        // creates a new job in the database
         db.Job.create(req.body).then(function (job) {
             res.json(job)
         })
     })
 
     app.get("/api/job/workers/:id", function (req, res) {
+        // find the workers for a job at a specific id
         db.Job.findOne({
             where: {
                 id: req.params.id

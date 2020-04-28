@@ -1,4 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
+  // model for worker accounts
   var Worker = sequelize.define("Worker", {
 
     firstName: {
@@ -27,6 +28,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   })
 
+  // a worker can sign up for many jobs
   Worker.associate = function (models) {
     Worker.belongsToMany(models.Job,
       {
